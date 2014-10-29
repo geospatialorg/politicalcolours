@@ -1,13 +1,21 @@
-var express = require('express');
-var path = require('path');
-//var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+/**
+ * Requirements
+ */
+var express = require('express'),
+    path = require('path'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+/**
+ * Routes
+ */
+var routes = require('./routes/index'),
+    users = require('./routes/users');
 
+/**
+ * Init the APP
+ */
 var app = express();
 
 // view engine setup
