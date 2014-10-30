@@ -2,9 +2,12 @@ var express = require('express');
 var router = express.Router();
 var url = require("url");
 
+var config = require('../config/site');
+
 /* GET home page. */
 router.get('/', function (req, res) {
     res.render('index', {
+		meta: config.meta,
         title: 'Political Colours of Romania Reloaded'
     });
 });
@@ -12,6 +15,7 @@ router.get('/', function (req, res) {
 /* GET About page. */
 router.get('/about', function (req, res) {
     res.render('about', {
+		meta: config.meta,
         title: 'About the project'
     });
 });
@@ -19,6 +23,7 @@ router.get('/about', function (req, res) {
 /* GET Integration page. */
 router.get('/integration', function (req, res) {
     res.render('integration', {
+		meta: config.meta,
         title: 'Integration'
     });
 });
@@ -26,6 +31,7 @@ router.get('/integration', function (req, res) {
 /* GET Collaborators page. */
 router.get('/collaborators', function (req, res) {
     res.render('collaborators', {
+		meta: config.meta,
         title: 'Collaborators and Data Sources'
     });
 });
@@ -33,6 +39,7 @@ router.get('/collaborators', function (req, res) {
 /* GET Feedback page. */
 router.get('/feedback', function (req, res) {
     res.render('feedback', {
+		meta: config.meta,
         title: 'Feedback'
     });
 });
@@ -40,6 +47,7 @@ router.get('/feedback', function (req, res) {
 /* GET Statistics page. */
 router.get('/statistics', function (req, res) {
     res.render('statistics', {
+		meta: config.meta,
         title: 'Statistics'
     });
 });
