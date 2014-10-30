@@ -20,9 +20,31 @@ map = L.map("map", {
     zoom: 7,
     center: [46.07, 25.19],
     layers: [mapquestOSM],
-    zoomControl: true,
+    zoomControl: false,
     attributionControl: true,
     maxZoom: 16,
     minZoom: 7,
     maxBounds: new L.LatLngBounds(southB, northB),
 });
+
+//Layer control
+var isCollapsed = true;
+var baseLayers = {
+    "Open Street Map": mapquestOSM
+};
+var groupedOverlays = {
+
+};
+
+/* Larger screens get expanded layer control */
+isCollapsed = (document.body.clientWidth <= 767) ? true : false;
+
+//layer control
+L.control.groupedLayers(baseLayers, groupedOverlays, {
+    collapsed: isCollapsed,
+    autoZIndex: true
+}).addTo(map);
+
+
+
+var sidebar = L.control.sidebar('sidebar').addTo(map);

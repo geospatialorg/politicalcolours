@@ -3,7 +3,24 @@ extends layout
 block content
     include menu.jade
     div#container
-        div#map
+        div#map.sidebar-map
+        div#sidebar.sidebar.collapsed
+            ul.sidebar-tabs(role="tablist")
+                li
+                    a(href="#home" role="tab")
+                        i.fa.fa-bars
+                li
+                    a(href="#profile" role="tab")
+                        i.fa.fa-user
+            <!-- Tab panes -->
+            div.sidebar-content.active
+                div.sidebar-pane#home
+                    h1
+                        | Legenda
+                div.sidebar-pane#profile
+                    h1
+                        | Profile
+
 block scripts
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='/libs/bootstrap/js/bootstrap.min.js')

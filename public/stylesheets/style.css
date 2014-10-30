@@ -12,18 +12,8 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .dropdown-menu li a {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-#sidebar {
-    width: 250px;
-    height: 100%;
-    max-width: 100%;
-    float: left;
-    -webkit-transition: all 0.25s ease-out;
-    -moz-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 #map {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -47,9 +37,6 @@ input[type="radio"], input[type="checkbox"] {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-#sidebar-hide-btn {
-    margin-top: -2px;
-}
 #aboutTabsContent {
     padding-top: 10px;
 }
@@ -61,18 +48,6 @@ input[type="radio"], input[type="checkbox"] {
 }
 .feature-row {
     cursor: pointer;
-}
-.sidebar-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-.sidebar-table {
-    position: absolute;
-    width: 100%;
-    top: 124px;
-    bottom: 0px;
-    overflow: auto;
 }
 .leaflet-control-layers label {
     font-weight: normal;
@@ -102,41 +77,6 @@ input[type="radio"], input[type="checkbox"] {
 .navbar-header a.navbar-icon {
     margin-left: 25px;
 }
-.typeahead {
-    background-color: #FFFFFF;
-}
-.tt-dropdown-menu {
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 4px;
-    padding: 4px 0;
-    width: 100%;
-    max-height: 300px;
-    overflow: auto;
-}
-.tt-suggestion {
-    font-size: 14px;
-    line-height: 20px;
-    padding: 3px 10px;
-}
-.tt-suggestion.tt-cursor {
-    background-color: #0097CF;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-.tt-suggestion p {
-    margin: 0;
-}
-.tt-suggestion + .tt-suggestion {
-    border-top: 1px solid #ccc;
-}
-.typeahead-header {
-    margin: 0 5px 5px 5px;
-    padding: 3px 0;
-    border-bottom: 2px solid #333;
-}
 .has-feedback .form-control-feedback {
     position: absolute;
     top: 0;
@@ -147,15 +87,7 @@ input[type="radio"], input[type="checkbox"] {
     line-height: 34px;
     text-align: center;
 }
-@media (max-width: 992px) {
-    .navbar .navbar-brand {
-        font-size: 18px;
-    }
-}
 @media (max-width: 767px){
-    #sidebar {
-        display: none;
-    }
     .url-break {
         word-break: break-all;
         word-break: break-word;
