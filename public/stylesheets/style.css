@@ -11,10 +11,27 @@ input[type="radio"], input[type="checkbox"] {
     margin: 0;
 }
 
+
 .dropdown-menu li a {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.sidebar-tabs {
+	background-color: #222222;
+}
+.sidebar-tabs > li {
+	color: #fff;
+}
+.sidebar-tabs > li.active {
+	background-color: #fff;
+	color: #222;
+}
+.sidebar-content,
+.sidebar-content * {
+	color: #222;
+}
+
+
 #map {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
