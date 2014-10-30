@@ -1,9 +1,7 @@
 politicalcolours
 ================
 
-Political colours of Romania interactively mapped Reloaded
-
-[Political colours](http://en.wikipedia.org/wiki/Political_colour)
+[Political colours](http://en.wikipedia.org/wiki/Political_colour) of Romania interactively mapped. Reloaded.
 
 GitHub information
 ==================
