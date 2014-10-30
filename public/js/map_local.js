@@ -24,7 +24,7 @@ map = L.map("map", {
     attributionControl: true,
     maxZoom: 16,
     minZoom: 7,
-    maxBounds: new L.LatLngBounds(southB, northB),
+    maxBounds: new L.LatLngBounds(southB, northB)
 });
 
 //Layer control
