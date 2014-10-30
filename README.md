@@ -5,18 +5,22 @@ Political colours of Romania interactively mapped Reloaded
 
 [Political colours](http://en.wikipedia.org/wiki/Political_colour)
 
-Install
-========
+GitHub information
+==================
 
-Clone from git
+The source code is available at https://github.com/geospatialorg/politicalcolours.
+You can either clone the repository or download a tarball of the latest release.
 
-	https://github.com/geospatialorg/politicalcolours.git
-
-To install the most recent release from npm, run:
+Once you have the source you can install by running
 
 	npm install
 
+You can execute the code using node.
+
+	node app.js
+
+
 Demo
-================
+====
 
 [www.politicalcolours.ro](http://www.politicalcolours.ro)
