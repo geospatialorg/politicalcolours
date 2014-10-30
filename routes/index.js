@@ -4,30 +4,30 @@ var url = require("url");
 
 /* GET home page. */
 router.get('/', function (req, res) {
-	res.render('index', {
-		title: 'Express'
-	});
+    res.render('index', {
+        title: 'Political Colours of Romania Reloaded'
+    });
 });
 
 /* GET maps. */
 router.get('/map_local', function (req, res) {
-	res.render('map_local', {
-		title: 'Localmap'
-	});
+    res.render('map_local', {
+        title: 'Localmap'
+    });
 });
 
 router.get('/map_senate', function (req, res) {
-	res.render('map_senate', {
-		title: 'Senatemap'
-	});
+    res.render('map_senate', {
+        title: 'Senatemap'
+    });
 });
 
 
 /* Page not found - if the path is not defined in this file */
 router.get('*', function (req, res) {
-	res.render('404', {
-		title: 'Page Not Found'
-	});
+    res.render('404', {
+        title: 'Page Not Found'
+    });
 });
 
 module.exports = router;

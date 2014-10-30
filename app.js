@@ -9,6 +9,23 @@ var bodyParser = require('body-parser');
 //routes main file
 var routes = require('./routes/index');
 
+/**
+ * Requirements
+ */
+var express = require('express'),
+    path = require('path'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser');
+
+/**
+ * Routes
+ */
+var routes = require('./routes/index');
+
+/**
+ * Init the APP
+ */
 var app = express();
 
 // view engine setup
