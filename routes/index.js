@@ -6,6 +6,7 @@ var config = require('../config/site');
 
 /* GET home page. */
 router.get('/', function (req, res) {
+	res.redirect('/map/local');return;
     res.render('index', {
 		meta: config.meta,
         title: 'Political Colours of Romania Reloaded'
