@@ -10,6 +10,12 @@ body {
 input[type="radio"], input[type="checkbox"] {
     margin: 0;
 }
+
+.dropdown-menu li a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 #sidebar {
     width: 250px;
     height: 100%;

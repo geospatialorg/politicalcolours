@@ -2,9 +2,14 @@ extends layout
 
 block content
 	include menu.jade
-	div#container
+	div.container-fluid
+		
 		h1= title
-		p Welcome to #{title}
+		div.row 
+			.col-md-8
+				h2 Messages received so far
+			.col-md-3.col-md-offset-1
+				h2 Add a new message
 block scripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 	script(src='/libs/bootstrap/js/bootstrap.min.js')

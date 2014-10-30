@@ -2,9 +2,13 @@ extends layout
 
 block content
 	include menu.jade
-	div#container
-		h1= title
-		p Welcome to #{title}
+	div.container-fluid
+		h1=title
+		
+		p The project offers open access in a friendly, interactive and visual way to public information regarding the spatial distribution of Romanian datasets referring to political preferences based on uninominal districts and 2011 national census data.
+		p Further more, it allows the user to query the maps and to create it's own thematic maps based on filters applied to attributes and/or geographical regions.
+		p There are four main predefined categories, Local Elections, Chamber of Deputies, Senate and Statistics that allow a clear view upon the political preferences, demographic and sociological dimension of the Romanian territory, from its' smallest administrative division.
+		p The project Political Colours of Romania interactively mapped has been voluntarily developed by a team of nine members, with different professional backgrounds: Petru Zoltan, Zolt&aacute;n Sipos, Bogdan Grama, Iulian Iuga, Vasile Craciunescu, Andrei Cipu, Cristi Draghici, Mihai Dumitru, Codrina Maria Ilie.
 block scripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 	script(src='/libs/bootstrap/js/bootstrap.min.js')
