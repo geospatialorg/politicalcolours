@@ -9,25 +9,6 @@ router.get('/', function (req, res) {
     });
 });
 
-/* GET maps. */
-router.get('/map_local', function (req, res) {
-    res.render('map_local', {
-        title: 'Localmap'
-    });
-});
-
-router.get('/map_senate', function (req, res) {
-    res.render('map_senate', {
-        title: 'Senatemap'
-    });
-});
-
-router.get('/map_chamber_of_deputies', function (req, res) {
-    res.render('map_chamber_of_deputies', {
-        title: 'Chamber of deputies map'
-    });
-});
-
 /* GET About page. */
 router.get('/about', function (req, res) {
     res.render('about', {
@@ -60,13 +41,6 @@ router.get('/feedback', function (req, res) {
 router.get('/statistics', function (req, res) {
     res.render('statistics', {
         title: 'Statistics'
-    });
-});
-
-/* Page not found - if the path is not defined in this file */
-router.get('*', function (req, res) {
-    res.render('404', {
-        title: 'Page Not Found'
     });
 });
 

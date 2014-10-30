@@ -6,25 +6,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-
-/**
- * Requirements
- */
-var express = require('express'),
-    path = require('path'),
-    logger = require('morgan'),
-    cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
-
-/**
- * Routes
- */
-var routes = require('./routes/index');
-
 /**
  * Init the APP
  */
 var app = express();
+
+/**
+ * Routes
+ */
+var routes = require('./routes/index'),
+	map = require('./routes/map'),
+	missing = require('./routes/missing');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +35,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-
+app.use('/map', map);
+// should remain last
+app.use('*', missing);
 
 // error handlers
 // production error handler
