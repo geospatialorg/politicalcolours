@@ -10,7 +10,7 @@ Install
 
 Clone from git
 
-	https://github.com/geospatialorg/politicalcolours
+	https://github.com/geospatialorg/politicalcolours.git
 
 To install the most recent release from npm, run:
 
