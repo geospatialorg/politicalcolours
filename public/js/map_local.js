@@ -11,7 +11,7 @@ var southB = [40.61, 15.26];
 var mapquestOSM = L.tileLayer("http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png", {
     maxZoom: 16,
     subdomains: ["otile1", "otile2", "otile3", "otile4"],
-    bounds: new L.LatLngBounds(southB, northB),
+    //bounds: new L.LatLngBounds(southB, northB),
     noWrap: true,
     attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.'
 });
@@ -23,10 +23,14 @@ map = L.map("map", {
     zoomControl: true,
     attributionControl: true,
     maxZoom: 16,
-    minZoom: 7,
+    minZoom: 6,
     maxBounds: new L.LatLngBounds(southB, northB)
 });
+if (L.Browser.touch) {
+    L.control.touchHover().addTo(map);
+}
 
+L.Path.CLIP_PADDING = 0.12;
 
 L.TopoJSON = L.GeoJSON.extend({
     addData: function (jsonData) {
@@ -68,8 +72,7 @@ function handleLayer(layer) {
         fillColor: getColor(layer.feature.properties.id_partid),
         fillOpacity: 1,
         color: '#555',
-        weight: 0.5,
-        dashArray: '2s',
+        weight: 1,
         opacity: 1
     });
 
@@ -81,26 +84,34 @@ function handleLayer(layer) {
 
 
 var $maptooltip = $('.map-tooltip');
+$maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a county').show();
 
 function enterLayer() {
     var name = this.feature.properties.name;
     var primar = this.feature.properties.primar;
+    var judet = this.feature.properties.jud_lbl;
     var partid = this.feature.properties.partid;
-    $maptooltip.html(name + '</br>' + primar + '</br>' + partid).show();
+    var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';
+
+
+    $maptooltip.html('<h4>Municipality Mayor 2012</h4>Judetul ' + judet + '</br>' + name + '</br>' + primar + '</br>' + party_colour + partid).show();
     this.bringToFront();
     this.setStyle({
-        weight: 2,
+        weight: 3,
         opacity: 1,
         color: 'red'
     });
 }
 
+
+
 function leaveLayer() {
-    $maptooltip.hide();
+    //$maptooltip.hide();
+    $maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a county');
     this.bringToBack();
     this.setStyle({
         weight: 1,
-        opacity: .5,
+        opacity: 1,
         color: '#555'
     });
 }

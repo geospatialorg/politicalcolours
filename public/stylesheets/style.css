@@ -1,213 +1,221 @@
 
 html, body, #container {
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
 #container {
-	overflow: hidden;
+    overflow: hidden;
 }
 body {
-	padding-top: 50px;
+    padding-top: 50px;
 }
 input[type="radio"], input[type="checkbox"] {
-	margin: 0;
+    margin: 0;
 }
 
 /* Page title fix */
 .navbar .navbar-brand {
-	font-size: 22px !important;
+    font-size: 22px !important;
 }
 @media screen and (max-width: 400px){
-	.navbar .navbar-brand {
-		font-size: 16px !important;
-	}
+    .navbar .navbar-brand {
+        font-size: 16px !important;
+    }
 }
 
 /* Form fix */
 .form-inline .input-group {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 small.remember {
-	padding-top: 10px;
-	display: block;
+    padding-top: 10px;
+    display: block;
 }
 
 /* Show integration code */
 .code {
-	border: 1px solid #383C4D;
-	padding: 10px;
-	margin: 10px 0px 10px 0px;
+    border: 1px solid #383C4D;
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
 }
 
 /* Logo image */
 img.logo {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 /* Dropdown fix */
 .dropdown-menu li a {
-	padding-top: 10px;
-	padding-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* Sidebars in maps */
 .sidebar-tabs {
-	background-color: #222222;
+    background-color: #222222;
 }
 .sidebar-tabs > li {
-	color: #fff;
+    color: #fff;
 }
 .sidebar-tabs > li.active {
-	background-color: #fff;
-	color: #222;
+    background-color: #fff;
+    color: #222;
 }
 .sidebar-content,
 .sidebar-content * {
-	color: #222;
+    color: #222;
 }
 
 /* Abouut */
 .about p {
-	font-size: 120%;
-	padding-top: 20px;
-	padding-bottom: 30px;
+    font-size: 120%;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 .about img {
-	background: #fff;
+    background: #fff;
 }
 
 /* Feedback bubbles */
 .example-right {
-	background: linear-gradient(#222, #2a9fd6) repeat scroll 0 0 rgba(0, 0, 0, 0);
-	border-radius: 10px;
-	color: #fff;
-	margin: 0;
-	padding: 15px 30px;
-	position: relative;
+    background: linear-gradient(#222, #2a9fd6) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    color: #fff;
+    margin: 0;
+    padding: 15px 30px;
+    position: relative;
 }
 .example-right + p {
-	font-style: italic;
-	margin: 15px 0 30px 85px;
-	font-size: 30px;
+    font-style: italic;
+    margin: 15px 0 30px 85px;
+    font-size: 30px;
 }
 .example-right:after {
-	border-color: transparent #2a9fd6;
-	border-style: solid;
-	border-width: 0 20px 50px 0;
-	bottom: -50px;
-	content: "";
-	display: block;
-	left: 50px;
-	position: absolute;
-	width: 0;
+    border-color: transparent #2a9fd6;
+    border-style: solid;
+    border-width: 0 20px 50px 0;
+    bottom: -50px;
+    content: "";
+    display: block;
+    left: 50px;
+    position: absolute;
+    width: 0;
 }
 
 
 #map {
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	width: 100%;
-	height: 100%;
-	background: #383e4b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    background: #383e4b;
 }
 #loading {
-	position: absolute;
-	width: 220px;
-	height: 19px;
-	top: 50%;
-	left: 50%;
-	margin: -10px 0 0 -110px;
-	z-index: 20001;
+    position: absolute;
+    width: 220px;
+    height: 19px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -110px;
+    z-index: 20001;
 }
 #features {
-	margin: 0px;
-	border: none;
-	border-radius: 0px;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+    margin: 0px;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 #aboutTabsContent {
-	padding-top: 10px;
+    padding-top: 10px;
 }
 .progress-bar-full {
-	width: 100%;
+    width: 100%;
 }
 .white {
-	color: #FFFFFF;
+    color: #FFFFFF;
 }
 .feature-row {
-	cursor: pointer;
+    cursor: pointer;
 }
 .leaflet-control-layers label {
-	font-weight: normal;
-	margin-bottom: 0px;
+    font-weight: normal;
+    margin-bottom: 0px;
 }
 .leaflet-control-layers-list input[type="radio"], input[type="checkbox"] {
-	margin: 2px;
+    margin: 2px;
 }
 .table {
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 .navbar .navbar-brand {
-	font-weight: bold;
-	font-size: 25px;
-	color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FFFFFF;
 }
 .navbar-collapse.in {
-	overflow-y: hidden;
+    overflow-y: hidden;
 }
 .navbar-header .navbar-icon-container {
-	margin-right: 15px;
+    margin-right: 15px;
 }
 .navbar-header .navbar-icon {
-	line-height: 50px;
-	height: 50px;
+    line-height: 50px;
+    height: 50px;
 }
 .navbar-header a.navbar-icon {
-	margin-left: 25px;
+    margin-left: 25px;
 }
 .has-feedback .form-control-feedback {
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: block;
-	width: 34px;
-	height: 34px;
-	line-height: 34px;
-	text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
 }
 @media (max-width: 767px){
-	.url-break {
-		word-break: break-all;
-		word-break: break-word;
-		-webkit-hyphens: auto;
-		hyphens: auto;
-	}
-	.dropdown-menu a i{
-		color: #FFFFFF;
-	}
+    .url-break {
+        word-break: break-all;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+    .dropdown-menu a i{
+        color: #FFFFFF;
+    }
 }
 /* Print Handling */
 @media print {
-	.navbar {
-		display: none !important;
-	}
-	.leaflet-control-container {
-		display: none !important;
-	}
+    .navbar {
+        display: none !important;
+    }
+    .leaflet-control-container {
+        display: none !important;
+    }
 }
 .map-tooltip{
-	position: absolute;
-	top:80px;
-	right:1em;
-	z-index:6;
-	background:rgba(0,0,0,.75);
-	color:white;
-	padding:.5em .75em;
-	font-size:0.85em;
-	display:none;
+    position: absolute;
+        top:80px;
+    right:1em;
+    z-index:6;
+    max-width: 150px;
+    background:rgba(0,0,0,.75);
+    color:white;
+    padding:.5em .75em;
+    font-size:0.85em;
+    display:none;
 }
 .opacity_slider_control .ui-slider-range {
-	background-image: none;
-	background-color: #646464;
-	height: 200px;
+    background-image: none;
+    background-color: #646464;
+    height: 200px;
+}
+.leaflet-touch .leaflet-bar {
+    box-shadow: none;
+    border: 4px solid rgba(0,0,0,0.3);
+}
+.leaflet-bar a.leaflet-control-touchhover-toggled {
+    background: #888;
 }
