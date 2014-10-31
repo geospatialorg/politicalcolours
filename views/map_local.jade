@@ -4,34 +4,13 @@ block content
     include menu.jade
     div#container
         div#map.sidebar-map
-        div#sidebar.sidebar.collapsed
-            ul.sidebar-tabs(role="tablist")
-                li
-                    a(href="#home" role="tab")
-                        i.fa.fa-bars
-                li
-                    a(href="#profile" role="tab")
-                        i.fa.fa-user
-            <!-- Tab panes -->
-            div.sidebar-content.active
-                div.sidebar-pane#home
-                    h1
-                        | Legenda
-                div.sidebar-pane#profile
-                    h1
-                        | Profile
+        div.map-tooltip
 
 block scripts
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='/libs/bootstrap/js/bootstrap.min.js')
+    script(src='http://d3js.org/topojson.v1.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js')
     script(src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js')
-    script(src='/libs/leaflet/plugins/proj4-compressed.js')
     script(src='/libs/leaflet/plugins/easy-button.js')
-    script(src='/libs/leaflet/plugins/proj4leaflet.js')
-    script(src='/libs/leaflet/plugins/L.Control.Sidebar.js')
-    script(src='/libs/leaflet/plugins/L.activearea.js')
-    script(src='/libs/leaflet/plugins/leaflet.groupedlayercontrol.js')
-    script(src='/libs/leaflet/plugins/leaflet.label.js')
-    script(src='/libs/leaflet/plugins/L.Control.MousePosition.js')
-    script(src='/libs/leaflet/plugins/Marker.Rotate.js')
     script(src='/js/map_local.js')
