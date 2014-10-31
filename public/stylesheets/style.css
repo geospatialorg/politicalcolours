@@ -75,7 +75,8 @@ img.logo {
 }
 .example-right + p {
     font-style: italic;
-    margin: 15px 0 2em 85px;
+    margin: 15px 0 30px 85px;
+	font-size: 30px;
 }
 .example-right:after {
     border-color: transparent #2a9fd6;

@@ -23,13 +23,13 @@ block content
 				form(role='form', method='post')
 					.form-group
 						label(for='name') First and last name
-						input#name.form-control(type='text', placeholder='Enter your name', name='name')
+						input#name.form-control(type='text', placeholder='Enter your name', name='name', required='')
 					.form-group
 						label(for='email') Email address
-						input#email.form-control(type='email', placeholder='Enter email', name='email')
+						input#email.form-control(type='email', placeholder='Enter email', name='email', required='')
 					.form-group
 						label(for='content') Message to send
-						textarea#content.form-control(type='email', placeholder='Enter message', name='content')
+						textarea#content.form-control(type='email', placeholder='Enter message', name='content', required='')
 					button.btn.btn-primary(type='submit') Submit
 block scripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
