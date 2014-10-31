@@ -2,6 +2,7 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
 /*global $*/
 /*global L*/
+/*global getColor*/
 
 var map;
 var northB = [51.26, 34.71];
@@ -24,19 +25,18 @@ map = L.map("map", {
     attributionControl: true,
     maxZoom: 16,
     minZoom: 6,
+    zoomAnimation: false,
     maxBounds: new L.LatLngBounds(southB, northB)
 });
 if (L.Browser.touch) {
     L.control.touchHover().addTo(map);
 }
 
-L.Path.CLIP_PADDING = 0.12;
-
 L.TopoJSON = L.GeoJSON.extend({
     addData: function (jsonData) {
         if (jsonData.type === "Topology") {
-            for (key in jsonData.objects) {
-                geojson = topojson.feature(jsonData, jsonData.objects[key]);
+            for (var key in jsonData.objects) {
+                var geojson = topojson.feature(jsonData, jsonData.objects[key]);
                 L.GeoJSON.prototype.addData.call(this, geojson);
             }
         } else {
@@ -44,11 +44,6 @@ L.TopoJSON = L.GeoJSON.extend({
         }
     }
 });
-var colorScale = chroma
-    .scale(['#D5E3FF', '#003171'])
-    .domain([0, 1]);
-
-var fillColor = colorScale(0.25).hex();
 
 var topoLayer = new L.TopoJSON();
 var layerData = {};
@@ -62,11 +57,8 @@ function addTopoData(topoData) {
 
 
 function handleLayer(layer) {
-    var randomValue = Math.random(),
-        fillColor = colorScale(randomValue).hex();
     layer.feature.properties.primar = layerData[layer.feature.id].primar;
     layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid);
-    layer.feature.properties.partid = layerData[layer.feature.id].partid;
 
     layer.setStyle({
         fillColor: getColor(layer.feature.properties.id_partid),
@@ -87,10 +79,10 @@ var $maptooltip = $('.map-tooltip');
 $maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a municipality').show();
 
 function enterLayer() {
-    var name = 'Municipality of <b>' + this.feature.properties.name + '</b>';
-    var primar = 'Mayor <i>' + this.feature.properties.primar + '</i>';
-    var judet = 'County <b>' + this.feature.properties.jud_lbl + '</b>';
-    var partid = this.feature.properties.partid;
+    var name = 'Municipality of <b>' + toTitleCase(this.feature.properties.name) + '</b>';
+    var primar = 'Mayor <i>' + toTitleCase(this.feature.properties.primar) + '</i>';
+    var judet = '<b>' + this.feature.properties.jud_lbl + ' County</b>';
+    var partid = getName(this.feature.properties.id_partid);
     var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';
 
 
@@ -103,8 +95,6 @@ function enterLayer() {
     });
 }
 
-
-
 function leaveLayer() {
     //$maptooltip.hide();
     $maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a municipality');
@@ -116,11 +106,7 @@ function leaveLayer() {
     });
 }
 
-// Grab the spreadsheet of data as JSON. If you have CSV
-// data, you should convert it to JSON with
-// http://shancarter.github.io/mr-data-converter/
 function loadData() {
-
     $.ajax({
         type: "GET",
         url: "../data/ro_primari_2012.csv",
@@ -131,7 +117,7 @@ function loadData() {
                 delimiter: '|',
                 headers: true
             });
-
+            //convert to dict JSON
             for (var key in inCSV) {
                 if (inCSV.hasOwnProperty(key)) {
                     layerData[inCSV[key].siruta] = inCSV[key];
