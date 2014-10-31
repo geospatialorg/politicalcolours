@@ -78,26 +78,25 @@ img.logo {
 
 /* Feedback bubbles */
 .example-right {
-    background: linear-gradient(#222, #2a9fd6) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-radius: 10px;
+    background: linear-gradient(#000, #222) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #222;
     color: #fff;
     margin: 0;
     padding: 15px 30px;
     position: relative;
 }
 .example-right + p {
-    font-style: italic;
-    margin: 15px 0 30px 85px;
-    font-size: 30px;
+    margin: 15px 0 30px 65px;
+    font-size: 22px;
 }
 .example-right:after {
-    border-color: transparent #2a9fd6;
+    border-color: transparent #222;
     border-style: solid;
-    border-width: 0 20px 50px 0;
-    bottom: -50px;
+    border-width: 0 30px 30px 0;
+    bottom: -30px;
     content: "";
     display: block;
-    left: 50px;
+    left: 20px;
     position: absolute;
     width: 0;
 }
