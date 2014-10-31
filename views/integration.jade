@@ -16,16 +16,17 @@ block content
 							div.input-group
 								div.input-group-addon Select the map
 								select#map.form-control(name='map')
-									option(value='map1')
-										|The first option
+									- each map in maps
+										option(value='#{map.value}')
+											|#{map.name}
 						.form-group
 							div.input-group
 								div.input-group-addon Width
-								input#width.form-control(type="number", min="50", max="1200", maxlength="4", size="4", name="width", value="")
+								input#width.form-control(type="number", min="50", max="1200", maxlength="4", size="4", name="width", value="#{settings.width}")
 						.form-group
 							div.input-group
 								div.input-group-addon Height
-								input#height.form-control(type="number", min="50", max="1200", maxlength="4", size="4", name="height", value="")
+								input#height.form-control(type="number", min="50", max="1200", maxlength="4", size="4", name="height", value="#{settings.height}")
 
 						button.btn.btn-primary(type='submit') Submit
 			div.row
@@ -35,7 +36,7 @@ block content
 			div.row
 				div.col-md-12
 					div.code
-						|&lt;iframe seamless="seamless" scrolling="no" frameboder="0" style="width: ---px; height: ---px;" src="---/embed/---">&lt;/iframe&gt;
+						|&lt;iframe seamless="seamless" scrolling="no" frameboder="0" style="width: #{settings.width}px; height: #{settings.height}px;" src="#{settings.path}">&lt;/iframe&gt;
 
 block scripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
