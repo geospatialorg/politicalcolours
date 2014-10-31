@@ -51,7 +51,7 @@ var colorScale = chroma
 var fillColor = colorScale(0.25).hex();
 
 var topoLayer = new L.TopoJSON();
-var layerData;
+var layerData = {};
 
 
 function addTopoData(topoData) {
@@ -65,7 +65,7 @@ function handleLayer(layer) {
     var randomValue = Math.random(),
         fillColor = colorScale(randomValue).hex();
     layer.feature.properties.primar = layerData[layer.feature.id].primar;
-    layer.feature.properties.id_partid = layerData[layer.feature.id].id_partid;
+    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid);
     layer.feature.properties.partid = layerData[layer.feature.id].partid;
 
     layer.setStyle({
@@ -84,17 +84,17 @@ function handleLayer(layer) {
 
 
 var $maptooltip = $('.map-tooltip');
-$maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a county').show();
+$maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a municipality').show();
 
 function enterLayer() {
-    var name = this.feature.properties.name;
-    var primar = this.feature.properties.primar;
-    var judet = this.feature.properties.jud_lbl;
+    var name = 'Municipality of <b>' + this.feature.properties.name + '</b>';
+    var primar = 'Mayor <i>' + this.feature.properties.primar + '</i>';
+    var judet = 'County <b>' + this.feature.properties.jud_lbl + '</b>';
     var partid = this.feature.properties.partid;
     var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';
 
 
-    $maptooltip.html('<h4>Municipality Mayor 2012</h4>Judetul ' + judet + '</br>' + name + '</br>' + primar + '</br>' + party_colour + partid).show();
+    $maptooltip.html('<h4>Municipality Mayor 2012</h4>' + judet + '</br>' + name + '</br>' + primar + '</br>' + party_colour + partid).show();
     this.bringToFront();
     this.setStyle({
         weight: 3,
@@ -107,7 +107,7 @@ function enterLayer() {
 
 function leaveLayer() {
     //$maptooltip.hide();
-    $maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a county');
+    $maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a municipality');
     this.bringToBack();
     this.setStyle({
         weight: 1,
@@ -120,13 +120,27 @@ function leaveLayer() {
 // data, you should convert it to JSON with
 // http://shancarter.github.io/mr-data-converter/
 function loadData() {
-    $.getJSON('../data/primari2012.json')
-        .done(function (data) {
-            layerData = data;
 
+    $.ajax({
+        type: "GET",
+        url: "../data/ro_primari_2012.csv",
+        dataType: "text",
+        success: function (data) {
+            var inCSV = $.csv.toObjects(data, {
+                separator: ',',
+                delimiter: '|',
+                headers: true
+            });
+
+            for (var key in inCSV) {
+                if (inCSV.hasOwnProperty(key)) {
+                    layerData[inCSV[key].siruta] = inCSV[key];
+                }
+            }
             $.getJSON('../data/gis/ro_uat.topojson').done(function (geodata) {
                 addTopoData(geodata);
             });
-        });
+        }
+    });
 }
 loadData();
