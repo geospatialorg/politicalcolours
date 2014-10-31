@@ -29,7 +29,7 @@ router.get('/integration', function (req, res) {
 	var settings = {
 		"width" : 50,
 		"height" : 50,
-		"path": req.protocol + '://' + req.get('host') + '/embed/' + req.query.map
+		"path": ''
 	};
 	
 	if(typeof req.query.width != 'undefined' && req.query.width !=''){
@@ -37,6 +37,9 @@ router.get('/integration', function (req, res) {
 	}
 	if(typeof req.query.height != 'undefined' && req.query.height !=''){
 		settings.height = parseInt(req.query.height);
+	}
+	if(typeof req.query.map != 'undefined' && req.query.map !=''){
+		settings.path = req.protocol + '://' + req.get('host') + '/embed/' + req.query.map;;
 	}
 
 	fs.readdir('./views/embedded', function(err, files){
