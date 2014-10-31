@@ -9,26 +9,27 @@ block content
 		div.row 
 			.col-md-7
 				h2.feedback
-					div.clearfix
-						blockquote.example-right
-							p 
-								| I think that politicalcolours will win #1st at theSponge again.
-						p
-							| Robin Hoood
+					- each message in messages
+						div.clearfix
+							blockquote.example-right
+								p 
+									| #{message.content}
+							p
+								| #{message.name}
 					
 			.col-md-4.col-md-offset-1
 				
 				h3 Add a new message
-				form(role='form')
+				form(role='form', method='post')
 					.form-group
 						label(for='name') First and last name
-						input#name.form-control(type='text', placeholder='Enter your name')
+						input#name.form-control(type='text', placeholder='Enter your name', name='name')
 					.form-group
 						label(for='email') Email address
-						input#email.form-control(type='email', placeholder='Enter email')
+						input#email.form-control(type='email', placeholder='Enter email', name='email')
 					.form-group
 						label(for='content') Message to send
-						textarea#content.form-control(type='email', placeholder='Enter message')
+						textarea#content.form-control(type='email', placeholder='Enter message', name='content')
 					button.btn.btn-primary(type='submit') Submit
 block scripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')

@@ -25,7 +25,6 @@ router.get('/about', function (req, res) {
 
 /* GET Integration page. */
 router.get('/integration', function (req, res) {
-
 	var maps = [];
 	var settings = {
 		"width" : 50,
@@ -76,10 +75,36 @@ router.get('/collaborators', function (req, res) {
 
 /* GET Feedback page. */
 router.get('/feedback', function (req, res) {
+	var file = JSON.parse(fs.readFileSync('./data/messages.json', 'utf8'));
+	
     res.render('feedback', {
 		meta: config.meta,
-        title: 'Feedback'
+        title: 'Feedback',
+		messages: file.messages
     });
+});
+
+router.post('/feedback', function (req, res) {
+	var name = req.body.name = req.sanitize(req.param('name'));
+	var email = req.body.email = req.sanitize(req.param('email'));
+	var content = req.body.content = req.sanitize(req.param('content'));
+	var filepath = './data/messages.json';
+	
+	var file = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+	
+	var message = { 
+		"name": name, 
+		"email": email, 
+		"content": content 
+	};
+	
+	file.messages.push(message);
+
+	fs.writeFile( filepath, JSON.stringify(file, null, 4), function(err) {
+		if(err) throw error;
+	});
+	
+	res.redirect('/feedback');
 });
 
 /* GET Statistics page. */

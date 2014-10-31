@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressSanitizer = require('express-sanitizer');
 
 /**
  * Init the APP
@@ -28,7 +29,7 @@ app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/public/img/favicon.png'));
 
 app.use(logger('dev'));
-
+app.use(expressSanitizer());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
