@@ -1,4 +1,4 @@
-function get_name(d)
+function getName(d)
 {
 	return d === 1 ? 'UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA' : 
 	d === 2 ? 'ALIANȚA CIVICĂ DEMOCRATĂ A ROMILOR' : 
