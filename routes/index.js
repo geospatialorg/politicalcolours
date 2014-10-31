@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var url = require("url");
+var fs = require('fs');
+var path = require('path');
 
 var config = require('../config/site');
 
@@ -23,10 +25,45 @@ router.get('/about', function (req, res) {
 
 /* GET Integration page. */
 router.get('/integration', function (req, res) {
-    res.render('integration', {
-		meta: config.meta,
-        title: 'Integration'
-    });
+
+	var maps = [];
+	var settings = {
+		"width" : 50,
+		"height" : 50,
+		"path": req.protocol + '://' + req.get('host') + '/embed/' + req.query.map
+	};
+	
+	if(typeof req.query.width != 'undefined' && req.query.width !=''){
+		settings.width = parseInt(req.query.width);
+	}
+	if(typeof req.query.height != 'undefined' && req.query.height !=''){
+		settings.height = parseInt(req.query.height);
+	}
+
+	fs.readdir('./views/embedded', function(err, files){
+		if(err) throw err;
+		files.forEach(function(file){
+			var map = {};
+		
+			var filename = file.split('.')[0];
+				//capitalize
+				filename = filename.charAt(0).toUpperCase() + filename.substring(1);
+				//convert "_" to " "
+				filename = filename.replace('_', ' ');
+			
+			map.name = filename;
+			map.value = new Buffer(file).toString('base64');
+			
+			maps.push(map);
+		});
+		
+		res.render('integration', {
+			meta: config.meta,
+			title: 'Integration',
+			maps: maps,
+			settings: settings
+		});
+	});
 });
 
 /* GET Collaborators page. */
