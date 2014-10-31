@@ -4,7 +4,39 @@ block content
 	include menu.jade
 	div.container-fluid
 		h1= title
-		p Welcome to #{title}
+		
+		div.integration
+			p 
+				|Please select the map you want integrated in your website:
+			
+			div.row
+				div.col-md-12
+					form.form-inline(role='form')
+						.form-group
+							div.input-group
+								div.input-group-addon Select the map
+								select#map.form-control(name='map')
+									option(value='map1')
+										|The first option
+						.form-group
+							div.input-group
+								div.input-group-addon Width
+								input#width.form-control(type="number", min="50", max="1200", maxlength="4", size="4", name="width", value="")
+						.form-group
+							div.input-group
+								div.input-group-addon Height
+								input#height.form-control(type="number", min="50", max="1200", maxlength="4", size="4", name="height", value="")
+
+						button.btn.btn-primary(type='submit') Submit
+			div.row
+				div.col-md-12
+					small.remember 
+						|Remember to press "Show code", in order to see the updated code.
+			div.row
+				div.col-md-12
+					div.code
+						|This is where the code will be
+
 block scripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 	script(src='/libs/bootstrap/js/bootstrap.min.js')
