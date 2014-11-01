@@ -4,7 +4,7 @@ var router = express.Router();
 var config = require('../config/site');
 
 router.get('/local', function (req, res) {
-    res.render('map_local', {
+    res.render('maps/map_local', {
 		meta: config.meta,
         title: 'Localmap'
     });
@@ -39,14 +39,14 @@ router.get('/local/senate_actualized', function (req, res) {
 });
 
 router.get('/senate', function (req, res) {
-    res.render('map_senate', {
+    res.render('maps/map_senate', {
 		meta: config.meta,
         title: 'Senatemap'
     });
 });
 
 router.get('/chamber_of_deputies', function (req, res) {
-    res.render('map_chamber_of_deputies', {
+    res.render('maps/map_chamber_of_deputies', {
 		meta: config.meta,
         title: 'Chamber of deputies map'
     });
