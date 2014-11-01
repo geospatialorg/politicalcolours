@@ -17,16 +17,23 @@ div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
 					a#maplist.dropdown-toggle(href="#" role="button" data-toggle="dropdown")
 						| Maps 
 						b.caret
-					ul.dropdown-menu(role="menu")
+					ul.dropdown-menu.multi-level(role="menu")
 						li
 							a#link1(href="/map/local" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Local admin
 						li
 							a#link1(href="/map/chamber_of_deputies" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Chamber of Deputies
-						li
+						li.dropdown-submenu
 							a#link1(href="/map/senate" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Senate
+							ul.dropdown-menu
+								li
+									a#link1(href="/map/local" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Example submenu 1
+								li
+									a#link1(href="/map/local" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Example submenu 2
 						li
 							a#link1(href="/statistics" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Statistics
