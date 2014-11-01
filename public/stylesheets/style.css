@@ -268,3 +268,8 @@ img.logo {
 .leaflet-bar a.leaflet-control-touchhover-toggled {
     background: #888;
 }
+
+/* Sponge logo fix */
+.sponge-img{
+	margin-top:30px;
+}
