@@ -35,6 +35,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res, next) {
+	var config = require('./config/site').meta;
+	for(var key in config) {
+		res.locals[key] = config[key];
+	}
+	next();
+});
+
 app.use('/', routes);
 app.use('/map', map);
 // should remain last

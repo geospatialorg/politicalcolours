@@ -4,13 +4,10 @@ var url = require("url");
 var fs = require('fs');
 var path = require('path');
 
-var config = require('../config/site');
-
 /* GET home page. */
 router.get('/', function (req, res) {
 	//res.redirect('/map/local');return;
     res.render('about', {
-		meta: config.meta,
         title: 'Political Colours of Romania Reloaded'
     });
 });
@@ -18,7 +15,6 @@ router.get('/', function (req, res) {
 /* GET About page. */
 router.get('/about', function (req, res) {
     res.render('about', {
-		meta: config.meta,
         title: 'About the project'
     });
 });
@@ -60,7 +56,6 @@ router.get('/integration', function (req, res) {
 		});
 		
 		res.render('integration', {
-			meta: config.meta,
 			title: 'Integration',
 			maps: maps,
 			settings: settings
@@ -71,7 +66,6 @@ router.get('/integration', function (req, res) {
 /* GET Collaborators page. */
 router.get('/collaborators', function (req, res) {
     res.render('collaborators', {
-		meta: config.meta,
         title: 'Collaborators and Data Sources'
     });
 });
@@ -81,7 +75,6 @@ router.get('/feedback', function (req, res) {
 	var file = JSON.parse(fs.readFileSync('./data/messages.json', 'utf8'));
 	
     res.render('feedback', {
-		meta: config.meta,
         title: 'Feedback',
 		messages: file.messages
     });
