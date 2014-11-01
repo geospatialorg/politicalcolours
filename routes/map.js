@@ -31,13 +31,6 @@ router.get('/local/mayors_2014_after_migration', function (req, res) {
     });
 });
 
-router.get('/local/senate_actualized', function (req, res) {
-    res.render('maps/senate_actualized', {
-		meta: config.meta,
-        title: 'Senate map actualized'
-    });
-});
-
 router.get('/senate', function (req, res) {
     res.render('maps/map_senate', {
 		meta: config.meta,
