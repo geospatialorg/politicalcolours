@@ -4,7 +4,16 @@ function toTitleCase(str) {
     });
 }
 
-
+function getColorCensus(d) {
+    return d > 50000 ? '#800026' :
+    d > 25000  ? '#BD0026' :
+    d > 10000  ? '#E31A1C' :
+    d > 5000  ? '#FC4E2A' :
+    d > 1000   ? '#FD8D3C' :
+    d > 500   ? '#FEB24C' :
+    d > 100   ? '#FED976' :
+    '#FFEDA0';
+}
 
 function getName(d) {
     return d === 1 ? 'UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA' :
