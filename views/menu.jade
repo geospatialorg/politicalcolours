@@ -30,16 +30,34 @@ div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
 										| Mayors 2012
 								li
 									a#link1(href="/map/local/mayors_2014_after_migration" data-toggle="collapse" data-target=".navbar-collapse.in")
-										| Mayors 2014 after migration
-						li
-							a#link1(href="/map/chamber_of_deputies" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Mayors 2014 OUG 55/2014
+						li.dropdown-submenu
+							a#link1(href="#" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Chamber of Deputies
-						li
-							a#link1(href="/map/senate" data-toggle="collapse" data-target=".navbar-collapse.in")
+							ul.dropdown-menu
+								li
+									a#link1(href="/map/chamber_of_deputies/chamber_of_deputies_2008-2012" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Chamber of Deputies 2008-2012
+								li
+									a#link1(href="/map/chamber_of_deputies/chamber_of_deputies_2012-2016" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Chamber of Deputies 2012-2016
+						li.dropdown-submenu
+							a#link1(href="#" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Senate
-						li
-							a#link1(href="/statistics" data-toggle="collapse" data-target=".navbar-collapse.in")
+							ul.dropdown-menu
+								li
+									a#link1(href="/map/senate/senate_2008-2012" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Senate 2008-2012
+								li
+									a#link1(href="/map/senate/senate_2012-2016" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Senate 20012-2016
+						li.dropdown-submenu
+							a#link1(href="#" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Statistics
+							ul.dropdown-menu
+								li
+									a#link1(href="/map/statistics/population_census_2011" data-toggle="collapse" data-target=".navbar-collapse.in")
+										| Population Census 2011
 			ul.nav.navbar-nav.navbar-right
 				li
 					a#link1(href="/about" data-toggle="collapse" data-target=".navbar-collapse.in")

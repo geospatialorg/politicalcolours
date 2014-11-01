@@ -110,12 +110,4 @@ router.post('/feedback', function (req, res) {
 	res.redirect('/feedback');
 });
 
-/* GET Statistics page. */
-router.get('/statistics', function (req, res) {
-    res.render('statistics', {
-		meta: config.meta,
-        title: 'Statistics'
-    });
-});
-
 module.exports = router;

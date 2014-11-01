@@ -102,6 +102,8 @@ function getName(d) {
         d === 96 ? 'ALIANȚA PENTRU COMUNA NOASTRĂ' :
         d === 97 ? 'ALIANȚA PENTRU COMUNITATE' :
         d === 98 ? 'ALIANȚA ROMÂNIA DREAPTĂ' :
+        d === 99 ? 'ALIANȚA ROMÂNIA DREAPTĂ' :
+        d === 100 ? 'GRUPUL PARLAMENTAR LIBERAL CONSERVATOR' :
         d === 998 ? 'MINORITAȚI' :
         d === 999 ? 'CANDIDAT INDEPENDENT' : 'Fara corespondenta';
 }
@@ -206,7 +208,8 @@ function getColor(d) {
         d === 96 ? '#856363' :
         d === 97 ? '#000000' :
         d === 98 ? '#00009C' :
-        d === 99 ? '#6B8E23' :
+        d === 99 ? '#6B8E2E' :
+        d === 100 ? '#6B8E2E' :
         d === 998 ? '#E6E8FA' :
         d === 999 ? '#E6E8FA' :
         '#E6E8FA';

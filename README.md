@@ -19,7 +19,7 @@ You can execute the code using node:
 
 In web browser:
 
-	localhost:3000
+	localhost:8888
 
 Demo
 ====
