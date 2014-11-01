@@ -102,7 +102,7 @@ function getName(d) {
         d === 96 ? 'ALIANȚA PENTRU COMUNA NOASTRĂ' :
         d === 97 ? 'ALIANȚA PENTRU COMUNITATE' :
         d === 98 ? 'ALIANȚA ROMÂNIA DREAPTĂ' :
-        d === 99 ? 'ALIANȚA ROMÂNIA DREAPTĂ' :
+        d === 99 ? 'PARTIDUL CONSERVATOR PARTIDUL LIBERAL REFORMATOR' :
         d === 100 ? 'GRUPUL PARLAMENTAR LIBERAL CONSERVATOR' :
         d === 998 ? 'MINORITAȚI' :
         d === 999 ? 'CANDIDAT INDEPENDENT' : 'Fara corespondenta';
