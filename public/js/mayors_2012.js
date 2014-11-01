@@ -62,7 +62,7 @@ function handleLayer(layer) {
 
     layer.setStyle({
         fillColor: getColor(layer.feature.properties.id_partid),
-        fillOpacity: 1,
+        fillOpacity: 0.9,
         color: '#555',
         weight: 1,
         opacity: 1
@@ -80,7 +80,7 @@ $maptooltip.html('<h4>Municipality Mayor 2012</h4>Hover over a municipality').sh
 
 function enterLayer() {
     var name = 'Municipality of <b>' + toTitleCase(this.feature.properties.name) + '</b>';
-    var primar = 'Mayor <i>' + toTitleCase(this.feature.properties.primar) + '</i>';
+    var primar = 'Mayor <b>' + toTitleCase(this.feature.properties.primar) + '</b>';
     var judet = '<b>' + this.feature.properties.jud_lbl + ' County</b>';
     var partid = getName(this.feature.properties.id_partid);
     var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';

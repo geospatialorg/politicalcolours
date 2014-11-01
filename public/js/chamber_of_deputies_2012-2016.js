@@ -78,16 +78,16 @@ function handleLayer(layer) {
 
 
 var $maptooltip = $('.map-tooltip');
-$maptooltip.html('<h4>Presidents of the County Councils 2012</h4>Hover over a county').show();
+$maptooltip.html('<h4>Chamber of deputies 2012-2016</h4>Hover over a uninominal college').show();
 
 function enterLayer() {
-    var presedinte = 'President <b>' + toTitleCase(this.feature.properties.nume) + '</b>';
-    var judet = '<b>' + this.feature.properties.name + ' County</b>';
+    var presedinte = 'Deputy <b>' + toTitleCase(this.feature.properties.nume) + '</b>';
+    var judet = '<b>' + this.feature.properties.name + ' County College ' + this.feature.id + '</b>';
     var partid = getName(this.feature.properties.id_partid);
     var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';
 
 
-    $maptooltip.html('<h4>Presidents of the County Councils 2012</h4>' + judet + '</br>' + presedinte + '</br>' + party_colour + partid).show();
+    $maptooltip.html('<h4>Chamber of deputies 2012-2016</h4>' + judet + '</br>' + presedinte + '</br>' + party_colour + partid).show();
     this.bringToFront();
     this.setStyle({
         weight: 3,
@@ -98,7 +98,7 @@ function enterLayer() {
 
 function leaveLayer() {
     //$maptooltip.hide();
-    $maptooltip.html('<h4>Presidents of the County Councils 2012</h4>Hover over a county');
+    $maptooltip.html('<h4>Chamber of deputies 2012-2016</h4>Hover over a uninominal college');
     this.bringToBack();
     this.setStyle({
         weight: 1,
@@ -110,7 +110,7 @@ function leaveLayer() {
 function loadData() {
     $.ajax({
         type: "GET",
-        url: "../../data/presedinti_cj_2012.csv",
+        url: "../../data/ro_deputati_2014.csv",
         dataType: "text",
         success: function (data) {
             var inCSV = $.csv.toObjects(data, {
@@ -121,10 +121,10 @@ function loadData() {
             //convert to dict JSON
             for (var key in inCSV) {
                 if (inCSV.hasOwnProperty(key)) {
-                    layerData[inCSV[key].jud_code] = inCSV[key];
+                    layerData[inCSV[key].coldep_code] = inCSV[key];
                 }
             }
-            $.getJSON('../../data/gis/ro_judete.topojson').done(function (geodata) {
+            $.getJSON('../../data/gis/ro_coldep.topojson').done(function (geodata) {
                 addTopoData(geodata);
             });
         }
