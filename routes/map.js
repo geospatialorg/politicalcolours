@@ -57,4 +57,10 @@ router.get('/statistics/campaign_tracker_2014', function (req, res) {
     });
 });
 
+router.get('/statistics/motorways', function (req, res) {
+    res.render('maps/motorways', {
+        title: 'motorways'
+    });
+});
+
 module.exports = router;

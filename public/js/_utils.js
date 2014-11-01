@@ -115,6 +115,7 @@ function getName(d) {
         d === 98 ? 'ALIANȚA ROMÂNIA DREAPTĂ' :
         d === 99 ? 'PARTIDUL CONSERVATOR PARTIDUL LIBERAL REFORMATOR' :
         d === 100 ? 'GRUPUL PARLAMENTAR LIBERAL CONSERVATOR' :
+        d === 101 ? 'PARTIDUL LIBERAL REFORMATOR' :
         d === 998 ? 'MINORITAȚI' :
         d === 999 ? 'CANDIDAT INDEPENDENT' : 'Fara corespondenta';
 }
@@ -221,6 +222,7 @@ function getColor(d) {
         d === 98 ? '#00009C' :
         d === 99 ? '#1492CF' :
         d === 100 ? '#6B8E2E' :
+        d === 101 ? '#1492CF' :
         d === 998 ? '#E6E8FA' :
         d === 999 ? '#E6E8FA' :
         '#E6E8FA';
