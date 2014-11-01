@@ -6,9 +6,9 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-	//res.redirect('/map/local');return;
-    res.render('about', {
-        title: 'Political Colours of Romania Reloaded'
+	//res.redirect('/map/local/mayors_2012');return;
+    res.render('maps/mayors_2012', {
+        title: 'Mayors 2012'
     });
 });
 

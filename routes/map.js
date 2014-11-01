@@ -50,4 +50,11 @@ router.get('/statistics/population_census_2011', function (req, res) {
     });
 });
 
+
+router.get('/statistics/campaign_tracker_2014', function (req, res) {
+    res.render('maps/campaign_tracker_2014', {
+        title: 'Campaign Tracker 2014'
+    });
+});
+
 module.exports = router;
