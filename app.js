@@ -12,6 +12,8 @@ var expressSanitizer = require('express-sanitizer');
  */
 var app = express();
 
+console.log(app.locals);
+
 /**
  * Routes
  */

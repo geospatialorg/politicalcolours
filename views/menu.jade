@@ -1,8 +1,5 @@
 div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
 	div.container-fluid
-		a.fork(href="https://github.com/geospatialorg/politicalcolours")
-			img(style="position: absolute; top: 0; right: 0; border: 0;z-index: 10000;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png")
-
 		div.navbar-header
 			button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar")
 				span.sr-only Toggle navigation
@@ -11,7 +8,7 @@ div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
 				span.icon-bar
 			div.navbar-icon-container
 			a.navbar-brand(href="/") 
-				img.logo(src='/img/favicon.png')
+				img.logo(src=path+'/img/favicon.png')
 				span politicalcolours.ro
 			
 		div.navbar-collapse.collapse
@@ -26,57 +23,57 @@ div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
 								| Local administration
 							ul.dropdown-menu
 								li
-									a#link1(href="/map/local/county_councils_presidents_2012" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/local/county_councils_presidents_2012" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Presidents of the County Councils 2012
 								li
-									a#link1(href="/map/local/mayors_2012" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/local/mayors_2012" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Mayors 2012
 								li
-									a#link1(href="/map/local/mayors_2014_after_migration" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/local/mayors_2014_after_migration" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Mayors 2014 after OUG 55/2014
 						li.dropdown-submenu
 							a#link1(href="#" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Chamber of Deputies
 							ul.dropdown-menu
 								li
-									a#link1(href="/map/chamber_of_deputies/chamber_of_deputies_2008-2012" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/chamber_of_deputies/chamber_of_deputies_2008-2012" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Chamber of Deputies 2008-2012
 								li
-									a#link1(href="/map/chamber_of_deputies/chamber_of_deputies_2012-2016" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/chamber_of_deputies/chamber_of_deputies_2012-2016" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Chamber of Deputies 2012-2016
 						li.dropdown-submenu
 							a#link1(href="#" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Senate
 							ul.dropdown-menu
 								li
-									a#link1(href="/map/senate/senate_2008-2012" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/senate/senate_2008-2012" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Senate 2008-2012
 								li
-									a#link1(href="/map/senate/senate_2012-2016" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/senate/senate_2012-2016" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Senate 2012-2016
 						li.dropdown-submenu
 							a#link1(href="#" data-toggle="collapse" data-target=".navbar-collapse.in")
 								| Statistics
 							ul.dropdown-menu
 								li
-									a#link1(href="/map/statistics/population_census_2011" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/statistics/population_census_2011" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Population Census 2011
 								li
-									a#link1(href="/map/statistics/campaign_tracker_2014" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/statistics/campaign_tracker_2014" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Campaign Tracker 2014
 								li
-									a#link1(href="/map/statistics/motorways" data-toggle="collapse" data-target=".navbar-collapse.in")
+									a#link1(href=path+"/map/statistics/motorways" data-toggle="collapse" data-target=".navbar-collapse.in")
 										| Motorways
 			ul.nav.navbar-nav.navbar-right.menu-fix
 				li
-					a#link1(href="/about" data-toggle="collapse" data-target=".navbar-collapse.in")
+					a#link1(href=path+"/about" data-toggle="collapse" data-target=".navbar-collapse.in")
 						| About
 				li
-					a#link1(href="/integration" data-toggle="collapse" data-target=".navbar-collapse.in")
+					a#link1(href=path+"/integration" data-toggle="collapse" data-target=".navbar-collapse.in")
 						| Integration
 				li
-					a#link1(href="/collaborators" data-toggle="collapse" data-target=".navbar-collapse.in")
+					a#link1(href=path+"/collaborators" data-toggle="collapse" data-target=".navbar-collapse.in")
 						| Data Sources
 				li
-					a#link1(href="/feedback" data-toggle="collapse" data-target=".navbar-collapse.in")
+					a#link1(href=path+"/feedback" data-toggle="collapse" data-target=".navbar-collapse.in")
 						| Feedback

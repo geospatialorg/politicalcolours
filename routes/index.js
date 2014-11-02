@@ -63,13 +63,6 @@ router.get('/integration', function (req, res) {
 	});
 });
 
-/* GET Collaborators page. */
-router.get('/collaborators', function (req, res) {
-    res.render('collaborators', {
-        title: 'Contributors and Data Sources'
-    });
-});
-
 /* GET Feedback page. */
 router.get('/feedback', function (req, res) {
 	var file = JSON.parse(fs.readFileSync('./data/messages.json', 'utf8'));
