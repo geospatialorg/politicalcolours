@@ -288,3 +288,21 @@ img.logo {
     margin-right: 8px;
     opacity: 0.7;
 }
+
+/* menu fix after fork*/
+@media screen and (max-width: 805px){
+	.fork {
+		display: none;
+	}
+    .navbar .navbar-brand {
+        font-size: 16px !important;
+    }
+}
+
+@media screen and (min-width: 750px){
+    /* menu fix after git fix */
+	
+	.menu-fix{
+		margin-right:100px !important;
+	}
+}
