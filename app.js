@@ -19,7 +19,6 @@ var routes = require('./routes/index'),
 	map = require('./routes/map'),
 	missing = require('./routes/missing');
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -45,13 +44,6 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/map', map);
-
-app.use('/old', function(req, res){
-	res.writeHead(301,
-	  {Location: 'https://www.google.ro'}
-	);
-	res.end();
-});
 // should remain last
 app.use('*', missing);
 
