@@ -1,3 +1,18 @@
+L.TopoJSON = L.GeoJSON.extend({
+    addData: function (jsonData) {
+        if (jsonData.type === "Topology") {
+            for (var key in jsonData.objects) {
+                var geojson = topojson.feature(jsonData, jsonData.objects[key]);
+                L.GeoJSON.prototype.addData.call(this, geojson);
+            }
+        } else {
+            L.GeoJSON.prototype.addData.call(this, jsonData);
+        }
+    }
+});
+
+
+
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();

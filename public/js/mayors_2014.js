@@ -32,18 +32,7 @@ if (L.Browser.touch) {
     L.control.touchHover().addTo(map);
 }
 
-L.TopoJSON = L.GeoJSON.extend({
-    addData: function (jsonData) {
-        if (jsonData.type === "Topology") {
-            for (var key in jsonData.objects) {
-                var geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                L.GeoJSON.prototype.addData.call(this, geojson);
-            }
-        } else {
-            L.GeoJSON.prototype.addData.call(this, jsonData);
-        }
-    }
-});
+
 
 var topoLayer = new L.TopoJSON();
 var layerData = {};
@@ -58,7 +47,7 @@ function addTopoData(topoData) {
 
 function handleLayer(layer) {
     layer.feature.properties.primar = layerData[layer.feature.id].primar;
-    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid);
+    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid_actual);
 
     layer.setStyle({
         fillColor: getColor(layer.feature.properties.id_partid),

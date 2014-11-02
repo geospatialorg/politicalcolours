@@ -32,18 +32,6 @@ if (L.Browser.touch) {
     L.control.touchHover().addTo(map);
 }
 
-L.TopoJSON = L.GeoJSON.extend({
-    addData: function (jsonData) {
-        if (jsonData.type === "Topology") {
-            for (var key in jsonData.objects) {
-                var geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                L.GeoJSON.prototype.addData.call(this, geojson);
-            }
-        } else {
-            L.GeoJSON.prototype.addData.call(this, jsonData);
-        }
-    }
-});
 
 var topoLayer = new L.TopoJSON();
 var layerData = {};
@@ -117,7 +105,6 @@ function leaveLayer() {
 
 
 function loadData() {
-    console.log(site_url);
     $.ajax({
         type: "GET",
         url: site_url + "data/ro_primari_probleme.csv",

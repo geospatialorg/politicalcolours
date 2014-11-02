@@ -32,18 +32,6 @@ if (L.Browser.touch) {
     L.control.touchHover().addTo(map);
 }
 
-L.TopoJSON = L.GeoJSON.extend({
-    addData: function (jsonData) {
-        if (jsonData.type === "Topology") {
-            for (var key in jsonData.objects) {
-                var geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                L.GeoJSON.prototype.addData.call(this, geojson);
-            }
-        } else {
-            L.GeoJSON.prototype.addData.call(this, jsonData);
-        }
-    }
-});
 
 var topoLayer = new L.TopoJSON();
 var layerData = {};
@@ -106,26 +94,43 @@ function leaveLayer() {
     });
 }
 
+
+function onEachFeature(feature, layer) {
+    var popupContent = "<p>I started out as a GeoJSON " +
+        feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+
+    if (feature.properties && feature.properties.popupContent) {
+        popupContent += feature.properties.popupContent;
+    }
+
+    layer.bindPopup(popupContent);
+}
+
 function loadData() {
     $.ajax({
         type: "GET",
-        url: site_url + "data/ro_primari_2014.csv",
+        url: site_url + "data/centralizator.geojson",
         dataType: "text",
         success: function (data) {
-            var inCSV = $.csv.toObjects(data, {
-                separator: ',',
-                delimiter: '|',
-                headers: true
-            });
-            //convert to dict JSON
-            for (var key in inCSV) {
-                if (inCSV.hasOwnProperty(key)) {
-                    layerData[inCSV[key].siruta] = inCSV[key];
+            L.geoJson([data], {
+
+                style: function (feature) {
+                    return feature.properties && feature.properties.style;
+                },
+
+                onEachFeature: onEachFeature,
+
+                pointToLayer: function (feature, latlng) {
+                    return L.circleMarker(latlng, {
+                        radius: 8,
+                        fillColor: "#ff7800",
+                        color: "#000",
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    });
                 }
-            }
-            $.getJSON(site_url + 'data/gis/ro_uat.topojson').done(function (geodata) {
-                addTopoData(geodata);
-            });
+            }).addTo(map);
         }
     });
 }
