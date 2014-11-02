@@ -5,14 +5,13 @@ html, body, #container {
 }
 #container {
     overflow: hidden;
-	margin-top: 50px;
 }
 
 .container-embed{
-	margin-top: 0 !important;
+	margin-top: 0!important;
 }
 body {
-    
+    padding-top: 50px;
 }
 input[type="radio"], input[type="checkbox"] {
     margin: 0;
