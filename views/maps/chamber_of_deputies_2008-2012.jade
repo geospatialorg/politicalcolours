@@ -3,10 +3,14 @@ extends ../layout
 block content
 	if(!embed)
 		include ../menu.jade
-	div#container
-		div#map.sidebar-map
-		div.map-tooltip
-
+	if(!embed)
+		div#container
+			div#map.sidebar-map
+			div.map-tooltip
+	else
+		div#container.container_embed
+			div#map.sidebar-map
+			div.map-tooltip
 block scripts
 	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 	script(src=path+'/libs/csv/jquery.csv-0.71.min.js')
