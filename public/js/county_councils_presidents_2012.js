@@ -110,7 +110,7 @@ function leaveLayer() {
 function loadData() {
     $.ajax({
         type: "GET",
-        url: "../../data/presedinti_cj_2012.csv",
+        url: site_url + "data/presedinti_cj_2012.csv",
         dataType: "text",
         success: function (data) {
             var inCSV = $.csv.toObjects(data, {
@@ -124,7 +124,7 @@ function loadData() {
                     layerData[inCSV[key].jud_code] = inCSV[key];
                 }
             }
-            $.getJSON('../../data/gis/ro_judete.topojson').done(function (geodata) {
+            $.getJSON(site_url + 'data/gis/ro_judete.topojson').done(function (geodata) {
                 addTopoData(geodata);
             });
         }

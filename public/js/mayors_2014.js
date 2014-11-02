@@ -58,7 +58,7 @@ function addTopoData(topoData) {
 
 function handleLayer(layer) {
     layer.feature.properties.primar = layerData[layer.feature.id].primar;
-    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid_actual);
+    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid);
 
     layer.setStyle({
         fillColor: getColor(layer.feature.properties.id_partid),
@@ -109,7 +109,7 @@ function leaveLayer() {
 function loadData() {
     $.ajax({
         type: "GET",
-        url: "../../data/ro_primari_2014.csv",
+        url: site_url + "data/ro_primari_2014.csv",
         dataType: "text",
         success: function (data) {
             var inCSV = $.csv.toObjects(data, {
@@ -123,7 +123,7 @@ function loadData() {
                     layerData[inCSV[key].siruta] = inCSV[key];
                 }
             }
-            $.getJSON('../../data/gis/ro_uat.topojson').done(function (geodata) {
+            $.getJSON(site_url + 'data/gis/ro_uat.topojson').done(function (geodata) {
                 addTopoData(geodata);
             });
         }

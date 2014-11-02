@@ -34,7 +34,6 @@ if (L.Browser.touch) {
 
 L.TopoJSON = L.GeoJSON.extend({
     addData: function (jsonData) {
-        'use strict';
         if (jsonData.type === "Topology") {
             for (var key in jsonData.objects) {
                 var geojson = topojson.feature(jsonData, jsonData.objects[key]);
@@ -58,12 +57,20 @@ function addTopoData(topoData) {
 
 
 function handleLayer(layer) {
-    console.log(layer.feature.id);
-    layer.feature.properties.nume = layerData[layer.feature.id].nume;
-    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid);
-
+    layer.feature.properties.primar = layerData[layer.feature.id].primar;
+    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid_principal);
+    layer.feature.properties.linkp = layerData[layer.feature.id].linkp;
+    
+    var colstyle = "transparent";
+    if(layer.feature.properties.linkp !== '')
+    {
+        layer.bindPopup(layer.feature.properties.linkp);
+        colstyle = "brown";
+    }
+    
+    
     layer.setStyle({
-        fillColor: getColor(layer.feature.properties.id_partid),
+        fillColor: colstyle,
         fillOpacity: 0.9,
         color: '#555',
         weight: 1,
@@ -78,16 +85,17 @@ function handleLayer(layer) {
 
 
 var $maptooltip = $('.map-tooltip');
-$maptooltip.html('<h4>Senate 2008-2012</h4>Hover over a uninominal college').show();
+$maptooltip.html('<h4>DNA activity mayors</h4>Click for DNA press release </br> or Hover over a municipality').show();
 
 function enterLayer() {
-    var presedinte = 'Senator <b>' + toTitleCase(this.feature.properties.nume) + '</b>';
-    var judet = '<b>' + this.feature.properties.name + ' County College ' + this.feature.id + '</b>';
+    var name = 'Municipality of <b>' + toTitleCase(this.feature.properties.name) + '</b>';
+    var primar = 'Mayor <b>' + toTitleCase(this.feature.properties.primar) + '</b>';
+    var judet = '<b>' + this.feature.properties.jud_lbl + ' County</b>';
     var partid = getName(this.feature.properties.id_partid);
     var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';
 
 
-    $maptooltip.html('<h4>Senate 2008-2012</h4>' + judet + '</br>' + presedinte + '</br>' + party_colour + partid).show();
+    $maptooltip.html('<h4>DNA activity mayors</h4>' + judet + '</br>' + name + '</br>' + primar + '</br>' + party_colour + partid).show();
     this.bringToFront();
     this.setStyle({
         weight: 3,
@@ -98,7 +106,7 @@ function enterLayer() {
 
 function leaveLayer() {
     //$maptooltip.hide();
-    $maptooltip.html('<h4>Senate 2008-2012</h4>Hover over a uninominal college');
+    $maptooltip.html('<h4>DNA activity mayors</h4>Click for DNA press release </br> or Hover over a municipality');
     this.bringToBack();
     this.setStyle({
         weight: 1,
@@ -107,10 +115,12 @@ function leaveLayer() {
     });
 }
 
+
 function loadData() {
+    console.log(site_url);
     $.ajax({
         type: "GET",
-        url: site_url + "data/ro_senatori_2008.csv",
+        url: site_url + "data/ro_primari_probleme.csv",
         dataType: "text",
         success: function (data) {
             var inCSV = $.csv.toObjects(data, {
@@ -121,10 +131,10 @@ function loadData() {
             //convert to dict JSON
             for (var key in inCSV) {
                 if (inCSV.hasOwnProperty(key)) {
-                    layerData[inCSV[key].colsen_code] = inCSV[key];
+                    layerData[inCSV[key].siruta] = inCSV[key];
                 }
             }
-            $.getJSON(site_url + 'data/gis/ro_colsen.topojson').done(function (geodata) {
+            $.getJSON(site_url + 'data/gis/ro_uat.topojson').done(function (geodata) {
                 addTopoData(geodata);
             });
         }
