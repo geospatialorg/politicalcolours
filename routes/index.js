@@ -66,7 +66,7 @@ router.get('/integration', function (req, res) {
 /* GET Collaborators page. */
 router.get('/collaborators', function (req, res) {
     res.render('collaborators', {
-        title: 'Collaborators and Data Sources'
+        title: 'Contributors and Data Sources'
     });
 });
 
