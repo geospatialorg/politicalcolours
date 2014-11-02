@@ -12,8 +12,6 @@ var expressSanitizer = require('express-sanitizer');
  */
 var app = express();
 
-console.log(app.locals);
-
 /**
  * Routes
  */
@@ -47,6 +45,13 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/map', map);
+
+app.use('/old', function(req, res){
+	res.writeHead(301,
+	  {Location: 'https://www.google.ro'}
+	);
+	res.end();
+});
 // should remain last
 app.use('*', missing);
 
