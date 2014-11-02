@@ -1,18 +1,20 @@
 doctype html
 html
-  head
-    title= title
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1 maximum-scale=1')
-    meta(name='mobile-web-app-capable', content='yes')
-    meta(name='apple-mobile-web-app-capable', content='yes')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    link(rel='stylesheet', href=path+'/libs/bootstrap-cyborg/bootstrap.min.css')
-    link(rel='stylesheet', href='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css')
-    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
-    link(rel='stylesheet', href=path+'/stylesheets/style.css')
-  body
-    block content
-    block scripts
+head
+	title= title
+	meta(charset='utf-8')
+	meta(http-equiv='X-UA-Compatible' content='IE=edge')
+	meta(name='viewport', content='width=device-width, initial-scale=1 maximum-scale=1')
+	meta(name='mobile-web-app-capable', content='yes')
+	meta(name='apple-mobile-web-app-capable', content='yes')
+	meta(name='description', content='')
+	meta(name='author', content='')
+	link(rel='stylesheet', href=path+'/libs/bootstrap-cyborg/bootstrap.min.css')
+	link(rel='stylesheet', href='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css')
+	link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+	link(rel='stylesheet', href=path+'/stylesheets/style.css')
+body
+	script.
+		var site_url = "#{site_url}";
+	block content
+	block scripts
