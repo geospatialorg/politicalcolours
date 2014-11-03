@@ -1,5 +1,5 @@
 node_modules
-config/site.js
 
 .DS_Store
 npm-debug.log
+config/site.js
