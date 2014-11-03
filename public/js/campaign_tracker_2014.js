@@ -28,53 +28,63 @@ map = L.map("map", {
     zoomAnimation: false,
     maxBounds: new L.LatLngBounds(southB, northB)
 });
-if (L.Browser.touch) {
-    L.control.touchHover().addTo(map);
-}
 
 
-var topoLayer = new L.TopoJSON();
-var layerData = {};
 
 
-function addTopoData(topoData) {
-    topoLayer.addData(topoData);
-    topoLayer.addTo(map);
-    topoLayer.eachLayer(handleLayer);
-}
-
-
-function handleLayer(layer) {
-    layer.feature.properties.primar = layerData[layer.feature.id].primar;
-    layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid_actual);
-
-    layer.setStyle({
-        fillColor: getColor(layer.feature.properties.id_partid),
-        fillOpacity: 0.9,
-        color: '#555',
-        weight: 1,
-        opacity: 1
-    });
-
-    layer.on({
-        mouseover: enterLayer,
-        mouseout: leaveLayer
-    });
-}
 
 
 var $maptooltip = $('.map-tooltip');
-$maptooltip.html('<h4>Campaign tracker 2014</h>').show();
+$maptooltip.html('<h4>Campaign tracker 2014</h4>Click for media/press release </br> or Hover over a marker</br>').show();
+
+var geolayer = null;
+var sliderControl = null;
+$.getJSON(site_url + "data/centralizator.geojson", function (data) {
+    var geolayer = L.geoJson(data, {
+        pointToLayer: function (feature, latlng) {
+            var id = feature.properties.ID;
+            //getColorCampaignTracker(id);
+            return new L.CircleMarker(latlng, {
+                radius: 10,
+                fillColor: getColorCampaignTracker(id),
+                color: "#555",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.9
+            });
+        },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.MEDIA);
+            layer.feature.properties.time = moment(feature.properties.DATA).format("DD MMM YYYY");
+            layer.on({
+                mouseover: enterLayer,
+                mouseout: leaveLayer
+            });
+        }
+    });
+    sliderControl = L.control.sliderControl({
+        position: "topleft",
+        layer: geolayer,
+        range: false
+    });
+}).done(function () {
+
+    map.addControl(sliderControl);
+    sliderControl.startSlider();
+});
+
+
 
 function enterLayer() {
-    var name = 'Municipality of <b>' + toTitleCase(this.feature.properties.name) + '</b>';
-    var primar = 'Mayor <b>' + toTitleCase(this.feature.properties.primar) + '</b>';
-    var judet = '<b>' + this.feature.properties.jud_lbl + ' County</b>';
-    var partid = getName(this.feature.properties.id_partid);
-    var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';
+    var name = '<b>' + toTitleCase(this.feature.properties.NUME) + '</b>';
+    var loc = '<b>' + toTitleCase(this.feature.properties.LOCALITATE) + '</b>';
+    var data = '<b>' + toTitleCase(this.feature.properties.DATA) + '</b>';
+    var eve = '<b>' + toTitleCase(this.feature.properties.EVENIMENT) + '</b>';
+    var party_colour = '<div style="background-color:' + getColorCampaignTracker(this.feature.properties.ID) + '">&nbsp;</div>';
 
 
-    $maptooltip.html('<h4>Campaign tracker 2014</h4>' + judet + '</br>' + name + '</br>' + primar + '</br>' + party_colour + partid).show();
+
+    $maptooltip.html('<h4>Campaign tracker 2014</h4>Click for media/press release </br> or Hover over a marker</br>' + name + '</br>' + loc + '</br>' + data + '</br>' + party_colour + eve).show();
     this.bringToFront();
     this.setStyle({
         weight: 3,
@@ -85,7 +95,7 @@ function enterLayer() {
 
 function leaveLayer() {
     //$maptooltip.hide();
-    $maptooltip.html('<h4>Campaign tracker 2014</h4>');
+    $maptooltip.html('<h4>Campaign tracker 2014</h4>Click for media/press release </br> or Hover over a marker</br>');
     this.bringToBack();
     this.setStyle({
         weight: 1,
@@ -93,45 +103,3 @@ function leaveLayer() {
         color: '#555'
     });
 }
-
-
-function onEachFeature(feature, layer) {
-    var popupContent = "<p>I started out as a GeoJSON " +
-        feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
-
-    if (feature.properties && feature.properties.popupContent) {
-        popupContent += feature.properties.popupContent;
-    }
-
-    layer.bindPopup(popupContent);
-}
-
-function loadData() {
-    $.ajax({
-        type: "GET",
-        url: site_url + "data/centralizator.geojson",
-        dataType: "text",
-        success: function (data) {
-            L.geoJson([data], {
-
-                style: function (feature) {
-                    return feature.properties && feature.properties.style;
-                },
-
-                onEachFeature: onEachFeature,
-
-                pointToLayer: function (feature, latlng) {
-                    return L.circleMarker(latlng, {
-                        radius: 8,
-                        fillColor: "#ff7800",
-                        color: "#000",
-                        weight: 1,
-                        opacity: 1,
-                        fillOpacity: 0.8
-                    });
-                }
-            }).addTo(map);
-        }
-    });
-}
-loadData();

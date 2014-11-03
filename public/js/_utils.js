@@ -135,6 +135,29 @@ function getName(d) {
         d === 999 ? 'CANDIDAT INDEPENDENT' : 'Fara corespondenta';
 }
 
+
+function getColorCampaignTracker(d) {
+    return d === 1 ? '#3288bd' :
+        d === 2 ? '#abdda4' :
+        d === 3 ? '#d53e4f' :
+        d === 4 ? '#fdae61' :
+        d === 5 ? '#FF00FF' :
+        d === 6 ? '#e6f598' :
+        d === 7 ? '#5e4fa2' :
+        d === 8 ? '#426F42' :
+        d === 9 ? '#9370DB' :
+        d === 10 ? '#236B8E' :
+        d === 11 ? '#238E68' :
+        d === 12 ? '#DB7093' :
+        d === 13 ? '#A68064' :
+        d === 14 ? '#2F2F4F' :
+        d === 15 ? '#23238E' :
+        d === 16 ? '#FF6EC7' :
+        d === 17 ? '#CDCDCD' :
+        d === 18 ? '#8F8FBD' :
+        '#5e4fa2';
+}
+
 function getColor(d) {
     return d === 0 ? '#FCFF1E' :
         d === 1 ? '#008080' :

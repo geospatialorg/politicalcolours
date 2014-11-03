@@ -48,15 +48,15 @@ function handleLayer(layer) {
     layer.feature.properties.primar = layerData[layer.feature.id].primar;
     layer.feature.properties.id_partid = parseInt(layerData[layer.feature.id].id_partid_principal);
     layer.feature.properties.linkp = layerData[layer.feature.id].linkp;
-    
+
     var colstyle = "transparent";
     if(layer.feature.properties.linkp !== '')
     {
         layer.bindPopup(layer.feature.properties.linkp);
-        colstyle = "brown";
+        colstyle = "blue";
     }
-    
-    
+
+
     layer.setStyle({
         fillColor: colstyle,
         fillOpacity: 0.9,
@@ -73,7 +73,7 @@ function handleLayer(layer) {
 
 
 var $maptooltip = $('.map-tooltip');
-$maptooltip.html('<h4>DNA activity mayors</h4>Click for DNA press release </br> or Hover over a municipality').show();
+$maptooltip.html('<h4>DNA activity mayors</h4></br><h6>(work in progress)</h6>Click for DNA press release </br> or Hover over a municipality').show();
 
 function enterLayer() {
     var name = 'Municipality of <b>' + toTitleCase(this.feature.properties.name) + '</b>';
@@ -83,7 +83,7 @@ function enterLayer() {
     var party_colour = '<div style="background-color:' + getColor(this.feature.properties.id_partid) + '">&nbsp;</div>';
 
 
-    $maptooltip.html('<h4>DNA activity mayors</h4>' + judet + '</br>' + name + '</br>' + primar + '</br>' + party_colour + partid).show();
+    $maptooltip.html('<h4>DNA activity mayors</h4></br><h6>(work in progress)</h6>' + judet + '</br>' + name + '</br>' + primar + '</br>' + party_colour + partid).show();
     this.bringToFront();
     this.setStyle({
         weight: 3,
@@ -94,7 +94,7 @@ function enterLayer() {
 
 function leaveLayer() {
     //$maptooltip.hide();
-    $maptooltip.html('<h4>DNA activity mayors</h4>Click for DNA press release </br> or Hover over a municipality');
+    $maptooltip.html('<h4>DNA activity mayors</h4></br><h6>(work in progress)</h6>Click for DNA press release </br> or Hover over a municipality');
     this.bringToBack();
     this.setStyle({
         weight: 1,
