@@ -63,7 +63,7 @@ $.getJSON(site_url + "data/centralizator.geojson", function (data) {
         }
     });
     sliderControl = L.control.sliderControl({
-        position: "topleft",
+        position: "bottomleft",
         layer: geolayer,
         range: false
     });
