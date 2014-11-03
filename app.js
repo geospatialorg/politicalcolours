@@ -25,7 +25,7 @@ app.set('view engine', 'jade');
 
 //TODO
 // uncomment after placing your favicon in /public
-app.use(favicon(__dirname + '/public/img/favicon.png'));
+app.use(favicon('./public/img/favicon.png'));
 
 app.use(logger('dev'));
 app.use(expressSanitizer());

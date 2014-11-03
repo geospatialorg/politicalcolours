@@ -8,14 +8,14 @@ var path = require('path');
 router.get('/', function (req, res) {
 	//res.redirect('/map/local/mayors_2012');return;
     res.render('maps/mayors_2012', {
-        title: 'Mayors 2012'
+        title: res.locals.site_title + ' - ' + 'Mayors 2012'
     });
 });
 
 /* GET About page. */
 router.get('/about', function (req, res) {
     res.render('about', {
-        title: 'About the project'
+        title: res.locals.site_title + ' - ' + 'About the project'
     });
 });
 
@@ -56,7 +56,7 @@ router.get('/integration', function (req, res) {
 		});
 		
 		res.render('integration', {
-			title: 'Integration',
+			title: res.locals.site_title + ' - ' + 'Integration',
 			maps: maps,
 			settings: settings
 		});
@@ -68,7 +68,7 @@ router.get('/feedback', function (req, res) {
 	var file = JSON.parse(fs.readFileSync('./data/messages.json', 'utf8'));
 	
     res.render('feedback', {
-        title: 'Feedback',
+        title: res.locals.site_title + ' - ' + 'Feedback',
 		messages: file.messages
     });
 });
@@ -93,7 +93,7 @@ router.post('/feedback', function (req, res) {
 		if(err) throw error;
 	});
 	
-	res.redirect(res.path + '/feedback');
+	res.redirect(res.locals.path + '/feedback');
 });
 
 module.exports = router;
