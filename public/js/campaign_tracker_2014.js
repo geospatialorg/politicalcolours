@@ -67,7 +67,7 @@ $.getJSON(site_url + "data/centralizator.geojson", function (data) {
     sliderControl = L.control.sliderControl({
         position: "bottomleft",
         layer: geolayer,
-        range: false
+        range: true
     });
 }).done(function () {
 

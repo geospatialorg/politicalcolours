@@ -17,6 +17,24 @@ input[type="radio"], input[type="checkbox"] {
     margin: 0;
 }
 
+/* Campaign tracker fix */
+.leaflet-bottom.leaflet-left .slider {
+	position: fixed !important;
+	left: 0 !important;
+	right: 0 !important;
+	bottom: 50px !important;
+	
+	width: 30% !important;
+	margin: 0px auto !important;
+}
+.ui-slider {
+	width: 100% !important;
+}
+.ui-slider #slider-timestamp {
+	margin-top: -24px !important;
+	margin-left: 10px; !important;
+}
+
 /* Page title fix */
 .navbar .navbar-brand {
     font-size: 22px !important;
