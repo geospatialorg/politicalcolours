@@ -29,7 +29,9 @@ map = L.map("map", {
     maxBounds: new L.LatLngBounds(southB, northB)
 });
 
-
+if (L.Browser.touch) {
+    L.control.touchHover().addTo(map);
+}
 
 
 
