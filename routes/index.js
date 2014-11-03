@@ -87,11 +87,25 @@ router.post('/feedback', function (req, res) {
 	var filepath = './data/messages.json';
 	
 	var file = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+	var d = new Date();
+	
+	function addLeadingZero(string){
+		return "0" + string;
+	}
+	
+	var month = d.getMonth() < 9 ? addLeadingZero(d.getMonth()) :  d.getMonth();
+	var day = d.getDate() < 10 ? addLeadingZero(d.getDate()) :  d.getDate();
+	var hour = d.getHours() < 10 ? addLeadingZero(d.getHours()) :  d.getHours();
+	var minutes = d.getMinutes() < 10 ? addLeadingZero(d.getMinutes()) :  d.getMinutes();
+	var seconds = d.getSeconds() < 10 ? addLeadingZero(d.getSeconds()) :  d.getSeconds();
+	
+	var timestamp = d.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds;
 	
 	var message = { 
 		"name": name, 
 		"email": email, 
-		"content": content 
+		"content": content,
+		"timestamp": timestamp
 	};
 	
 	file.messages.push(message);
