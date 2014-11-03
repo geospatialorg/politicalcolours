@@ -1,20 +1,20 @@
 extends ../layout
 
 block content
-    if(!embed)
+	if(!embed)
 		include ../menu.jade
-    div#container
-        div#map.sidebar-map
-        div.map-tooltip
+	div#container
+		div#map.sidebar-map
+		div.map-tooltip
 
 block scripts
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-    script(src=path+'/libs/csv/jquery.csv-0.71.min.js')
-    script(src=path+'/libs/bootstrap/js/bootstrap.min.js')
-    script(src='http://d3js.org/topojson.v1.min.js')
-    script(src='http://cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js')
-    script(src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js')
-    script(src=path+'/libs/leaflet/plugins/easy-button.js')
-    script(src=path+'/libs/leaflet/plugins/Control.TouchHover.js')
-    script(src=path+'/js/_utils.js')
-    script(src=path+'/js/mayors_2012.js')
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+	script(src=path+'/libs/csv/jquery.csv-0.71.min.js')
+	script(src=path+'/libs/bootstrap/js/bootstrap.min.js')
+	script(src='http://d3js.org/topojson.v1.min.js')
+	script(src='http://cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js')
+	script(src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js')
+	script(src=path+'/libs/leaflet/plugins/easy-button.js')
+	script(src=path+'/libs/leaflet/plugins/Control.TouchHover.js')
+	script(src=path+'/js/_utils.js')
+	script(src=path+'/js/mayors_2012.js')

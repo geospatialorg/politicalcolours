@@ -17,6 +17,14 @@ You can execute the code using node:
 
 	node app.js
 
+Edit
+
+	./config/site-sample.js
+
+and rename file as 
+	
+	./config/site.js
+
 In web browser:
 
 	localhost:8888

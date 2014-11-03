@@ -93,7 +93,7 @@ router.post('/feedback', function (req, res) {
 		if(err) throw error;
 	});
 	
-	res.redirect('/feedback');
+	res.redirect(res.path + '/feedback');
 });
 
 module.exports = router;
