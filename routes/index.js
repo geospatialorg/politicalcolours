@@ -35,10 +35,10 @@ router.get('/integration', function (req, res) {
 		settings.height = parseInt(req.query.height);
 	}
 	if(typeof req.query.map != 'undefined' && req.query.map !=''){
-		settings.path = req.protocol + '://' + req.get('host') + '/embed/' + req.query.map;;
+		settings.path = res.locals.embed_url + '/embed/' + req.query.map;;
 	}
 
-	fs.readdir('./views/embedded', function(err, files){
+	fs.readdir('./views/maps', function(err, files){
 		if(err) throw err;
 		files.forEach(function(file){
 			var map = {};
@@ -47,10 +47,10 @@ router.get('/integration', function (req, res) {
 				//capitalize
 				filename = filename.charAt(0).toUpperCase() + filename.substring(1);
 				//convert "_" to " "
-				filename = filename.replace('_', ' ');
+				filename = filename.replace(new RegExp("_", "g"), ' ');
 			
 			map.name = filename;
-			map.value = new Buffer(file).toString('base64');
+			map.value = new Buffer(file.split('.')[0]).toString('base64');
 			
 			maps.push(map);
 		});
@@ -62,6 +62,13 @@ router.get('/integration', function (req, res) {
 		});
 	});
 });
+
+router.get('/embed/:map', function (req, res) {
+	var map = new Buffer(req.params.map, 'base64').toString('ascii');
+	
+    res.redirect(res.locals.path + '/map/' + map + "?embed=true");
+});
+
 
 /* GET Feedback page. */
 router.get('/feedback', function (req, res) {
