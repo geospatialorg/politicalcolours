@@ -30,6 +30,12 @@ function getColorCensus(d) {
     '#FFEDA0';
 }
 
+function getColorPE2014(d) {
+    return d == 1 ? 'yellow' :
+    d == 2  ? 'red' :
+    '#4daf4a';
+}
+
 function getName(d) {
     return d === 1 ? 'UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA' :
         d === 2 ? 'ALIANȚA CIVICĂ DEMOCRATĂ A ROMILOR' :

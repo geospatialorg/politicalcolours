@@ -100,7 +100,7 @@ function enterLayer() {
     this.setStyle({
         weight: 3,
         opacity: 1,
-        color: 'red'
+        color: '#4daf4a'
     });
 }
 
