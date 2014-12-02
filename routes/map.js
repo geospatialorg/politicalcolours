@@ -77,4 +77,10 @@ router.get('/motorways', checkIfEmbeded, function (req, res) {
     });
 });
 
+router.get('/presidential_elections_2014', checkIfEmbeded, function (req, res) {
+    res.render('maps/presidential_elections_2014', {
+        title: res.locals.site_title + ' - ' + 'Presidential Elections 2014'
+    });
+});
+
 module.exports = router;
